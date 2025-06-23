@@ -25,6 +25,7 @@
         <logback.version>1.5.12</logback.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <hutool.verison>5.8.35</hutool.verison>
+        <mysql.version>8.0.33</mysql.version>
     </properties>
 
     <dependencyManagement>
@@ -61,6 +62,12 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.verison}</version>
+            </dependency>
+            <!-- MySQL 驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
