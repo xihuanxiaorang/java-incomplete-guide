@@ -13,6 +13,7 @@
         <module>design-pattern-study</module>
         <module>datastructure-study</module>
         <module>mapstruct-study</module>
+        <module>algorithm-study</module>
     </modules>
 
     <properties>
@@ -22,6 +23,7 @@
         <lombok.version>1.18.34</lombok.version>
         <logback.version>1.5.12</logback.version>
         <mapstruct.version>1.6.3</mapstruct.version>
+        <hutool.verison>5.8.35</hutool.verison>
     </properties>
 
     <dependencyManagement>
@@ -52,6 +54,12 @@
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <!-- Hutool -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.verison}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
