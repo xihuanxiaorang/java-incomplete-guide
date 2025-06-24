@@ -1,5 +1,9 @@
 package fun.xiaorang.study.designpattern.factory.simple;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 /**
  * @author xiaorang
  * @description <p style = " font-weight:bold ; "><p/>
@@ -11,13 +15,14 @@ public class CourseFactory {
   private CourseFactory() {
   }
 
-  public static ICourse createCourse(String name) {
-    if ("java".equals(name)) {
-      return new JavaCourse();
-    } else if ("python".equals(name)) {
-      return new PythonCourse();
-    } else {
-      return null;
+  public static ICourse createCourse() {
+    try (InputStream in = CourseFactory.class.getClassLoader().getResourceAsStream("simple-factory.properties")) {
+      Properties properties = new Properties();
+      properties.load(in);
+      final String type = properties.getProperty("type");
+      return (ICourse) Class.forName(type).newInstance();
+    } catch (IOException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+      throw new RuntimeException(e);
     }
   }
 }
