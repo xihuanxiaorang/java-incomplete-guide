@@ -15,6 +15,7 @@
         <module>mapstruct-study</module>
         <module>algorithm-study</module>
         <module>javase-study</module>
+        <module>effective-java-study</module>
     </modules>
 
     <properties>
