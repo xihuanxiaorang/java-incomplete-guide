@@ -7,11 +7,13 @@ package fun.xiaorang.study.java.core.nestedclass;
  * @Copyright 博客：<a href="https://docs.xiaorang.fun">小让的糖果屋</a>  - show me the code
  * @date 2025/01/15 22:54
  */
+// 顶级类（非嵌套类）
 public class TopLevelClass {
-  void accessMembers(OuterClass outer) {
-    // Compiler error: Cannot make a static reference to the non-static field OuterClass.outerField
-    // System.out.println(OuterClass.outerField);
-    System.out.println(outer.outerField);
-    System.out.println(OuterClass.staticOuterField);
+  void accessOuter(OuterClass outer) {
+    // 不能直接访问外部类的非静态成员
+    // System.out.println(OuterClass.instanceField); // 编译错误
+    System.out.println(outer.instanceField);
+    System.out.println(OuterClass.staticField);
   }
 }
+

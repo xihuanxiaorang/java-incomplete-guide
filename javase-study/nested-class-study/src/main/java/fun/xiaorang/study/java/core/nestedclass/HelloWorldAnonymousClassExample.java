@@ -7,42 +7,45 @@ package fun.xiaorang.study.java.core.nestedclass;
  * @Copyright 博客：<a href="https://docs.xiaorang.fun">小让的糖果屋</a>  - show me the code
  * @date 2025/01/15 22:55
  */
-public class HelloWorldAnonymousClasses {
+public class HelloWorldAnonymousClassExample {
 
   public void sayHello() {
 
+    // 英语问候 - 局部内部类实现
     class EnglishGreeting implements HelloWorld {
       String name = "world";
 
       @Override
       public void greet() {
-        greetSomeone("world");
+        greetSomeone(name);
       }
 
       @Override
       public void greetSomeone(String someone) {
         name = someone;
-        System.out.println("Hello " + name);
+        System.out.println("Hello, " + name);
       }
     }
 
     HelloWorld englishGreeting = new EnglishGreeting();
 
+    // 法语问候 - 匿名内部类实现
     HelloWorld frenchGreeting = new HelloWorld() {
       String name = "tout le monde";
 
       @Override
       public void greet() {
-        greetSomeone("tout le monde");
+        greetSomeone(name);
       }
 
       @Override
       public void greetSomeone(String someone) {
         name = someone;
-        System.out.println("Salut " + name);
+        System.out.println("Salut, " + name);
       }
     };
 
+    // 西班牙语问候 - 匿名内部类实现
     HelloWorld spanishGreeting = new HelloWorld() {
       String name = "mundo";
 
@@ -64,8 +67,7 @@ public class HelloWorldAnonymousClasses {
   }
 
   public static void main(String... args) {
-    HelloWorldAnonymousClasses myApp = new HelloWorldAnonymousClasses();
-    myApp.sayHello();
+    new HelloWorldAnonymousClassExample().sayHello();
   }
 
   interface HelloWorld {

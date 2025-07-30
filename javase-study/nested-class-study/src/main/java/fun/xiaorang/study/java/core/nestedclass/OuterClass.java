@@ -8,40 +8,42 @@ package fun.xiaorang.study.java.core.nestedclass;
  * @date 2025/01/15 22:53
  */
 public class OuterClass {
-  static String staticOuterField = "Static outer field";
-  String outerField = "Outer field";
+  static String staticField = "Static outer field";
+  String instanceField = "Instance outer field";
 
   public static void main(String[] args) {
-    System.out.println("Inner class:");
-    System.out.println("------------");
-    OuterClass outerObject = new OuterClass();
-    OuterClass.InnerClass innerObject = outerObject.new InnerClass();
-    innerObject.accessMembers();
+    System.out.println("Member inner class:");
+    System.out.println("-------------------");
+    OuterClass outer = new OuterClass();
+    InnerClass memberInner = outer.new InnerClass();
+    memberInner.accessOuter();
 
-    System.out.println("\nStatic nested class:");
+    System.out.println("\nStatic inner class:");
     System.out.println("--------------------");
-    StaticNestedClass staticNestedObject = new StaticNestedClass();
-    staticNestedObject.accessMembers(outerObject);
+    StaticInnerClass staticInner = new StaticInnerClass();
+    staticInner.accessOuter(outer);
 
     System.out.println("\nTop-level class:");
-    System.out.println("--------------------");
-    TopLevelClass topLevelObject = new TopLevelClass();
-    topLevelObject.accessMembers(outerObject);
+    System.out.println("----------------");
+    TopLevelClass topLevel = new TopLevelClass();
+    topLevel.accessOuter(outer);
   }
 
-  static class StaticNestedClass {
-    void accessMembers(OuterClass outer) {
-      // Compiler error: Cannot make a static reference to the non-static field outerField
-      // System.out.println(outerField);
-      System.out.println(outer.outerField);
-      System.out.println(staticOuterField);
+  static class StaticInnerClass {
+    void accessOuter(OuterClass outer) {
+      // 不能直接访问外部类非静态成员，需要通过实例
+      System.out.println(outer.instanceField);
+      // 可直接访问外部类的静态成员
+      System.out.println(staticField);
     }
   }
 
   class InnerClass {
-    void accessMembers() {
-      System.out.println(outerField);
-      System.out.println(staticOuterField);
+    void accessOuter() {
+      // 可直接访问外部类所有成员
+      System.out.println(instanceField);
+      System.out.println(staticField);
     }
   }
 }
+
