@@ -16,6 +16,7 @@
         <module>algorithm-study</module>
         <module>javase-study</module>
         <module>effective-java-study</module>
+        <module>leetcode-study</module>
     </modules>
 
     <properties>
