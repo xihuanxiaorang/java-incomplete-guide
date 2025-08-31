@@ -26,9 +26,9 @@ public class TwoSum_1 {
     /**
      * 返回数组中和为目标值的两个数的索引。
      *
-     * @param {int[]} nums - 整数数组
-     * @param {int}   target - 目标和
-     * @return {int[]} 两个数的索引，如果找不到则返回空数组
+     * @param nums   整数数组
+     * @param target 目标和
+     * @return 两个数的索引，如果找不到则返回空数组
      */
     public int[] twoSum(int[] nums, int target) {
       // 创建一个哈希表来存储每个元素及其对应的索引
